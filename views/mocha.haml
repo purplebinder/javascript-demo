@@ -8,6 +8,8 @@
         position: absolute;
         top: 50px;
         left: 50px;
+        width: 300px;
+        height: 200px;
       }
     %script(src="js/jquery-2.0.2.js")
     %script(src="js/mocha.js")
@@ -16,12 +18,12 @@
     :javascript
       mocha.setup('bdd');
       var assert = chai.assert;
-    %script(src="js/test.js")
 
   %body
     %h1 Mocha Tests
     #test-screensaver
     #mocha
+    %script(src="js/test.js")
     :javascript
       mocha.run();
 
