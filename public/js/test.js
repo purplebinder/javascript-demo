@@ -85,4 +85,67 @@ describe('ScreenSaver', function() {
 
   });
 
+  describe('#setDirection', function() {
+    describe('moving left', function() {
+      it('keeps moving left', function() {
+        screenSaver.going_right = false;
+        screenSaver.setPosition(50, 50);  // left = 50 ... not the edge of the screen
+        screenSaver.setDirection();
+        assert.equal(screenSaver.going_right, false);
+      });
+      it('unless it hits the left edge of the window', function() {
+        screenSaver.going_right = false;
+        screenSaver.setPosition(50, 0);  // left = 0
+        screenSaver.setDirection();
+        assert.equal(screenSaver.going_right, true);
+      });
+    });
+
+    describe('moving right', function() {
+      it('keeps moving right', function() {
+        screenSaver.setPosition(50, 50);  // right = 50 ... not the edge of the screen
+        screenSaver.going_right = true;
+        screenSaver.setDirection();
+        assert.equal(screenSaver.going_right, true);
+      });
+      it('unless it hits the right edge of the window', function() {
+        screenSaver.setPosition(50, $(window).width() - screenSaver.width);  // right = ... edge of screen
+        screenSaver.going_right = true;
+        screenSaver.setDirection();
+        assert.equal(screenSaver.going_right, false);
+      });
+
+    });
+    describe('moving up', function() {
+      it('keeps moving up', function() {
+        screenSaver.setPosition(50, 50);  // top = 50 ... not the edge of the screen
+        screenSaver.going_down = false;
+        screenSaver.setDirection();
+        assert.equal(screenSaver.going_down, false);
+      });
+      it('unless it hits the top edge of the window', function() {
+        screenSaver.setPosition(0, 50);  // top = 0
+        screenSaver.going_down = false;
+        screenSaver.setDirection();
+        assert.equal(screenSaver.going_down, true);
+      });
+
+    });
+    describe('moving down', function() {
+      it('keeps moving down', function() {
+        screenSaver.setPosition(50, 50);  // bottom = 50 + screen saver height ... not the edge of the screen
+        screenSaver.going_down = true;
+        screenSaver.setDirection();
+        assert.equal(screenSaver.going_down, true)
+      });
+      it('unless it hits the bottom edge of the window', function() {
+        screenSaver.setPosition($(window).height() - screenSaver.height, 50);  // bottom = ... edge of screen
+        screenSaver.going_down = true;
+        screenSaver.setDirection();
+        assert.equal(screenSaver.going_down, false)
+      });
+
+    });
+  });
+
 });
