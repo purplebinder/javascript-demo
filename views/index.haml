@@ -8,13 +8,17 @@
       body {
         background-color: black;
       }
-      #white-square {
+      img {
         width: 300px;
-        height: 160px;
-        background-color: #FCFCFC;
+        height: 230px;
         margin: auto;
       }
+      
 
   %body
-    #white-square
-    -# %img(src="images/hippo.jpg")
+    %img(src="images/mooninites.jpg")
+      
+    :javascript
+      $(function(){
+        drift(); 
+      });
