@@ -10,6 +10,8 @@ var ScreenSaver = function(selector) {
     this.left = offset.left;
     this.width = this.element.width();
     this.height = this.element.height();
+    this.going_down = right;
+    this.going_right = true;
 
     this.setPosition = function(offset_top, offset_left) {
       this.top = offset_top;

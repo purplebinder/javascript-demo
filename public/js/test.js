@@ -46,7 +46,9 @@ describe('ScreenSaver', function() {
   });
 
   describe('#move()', function() {
-    it('moves the screen saver down and right from its starting position', function() {
+    it('if its going down and right', function() {
+      screenSaver.going_down = true;
+      screenSaver.going_right = true;
       var starting_top = screenSaver.top;
       var starting_left = screenSaver.left;
       screenSaver.move();
