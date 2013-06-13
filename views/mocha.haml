@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %title Mocha Tests
+    %link(rel="stylesheet" href="css/mocha.css")
+    %script(src="js/mocha.js")
+    %script(src="js/chai.js")
+    :javascript
+      mocha.setup('bdd');
+      var assert = chai.assert;
+    %script(src="js/test.js")
+
+  %body
+    %h1 Mocha Tests
+    #mocha
+    :javascript
+      mocha.run();
+

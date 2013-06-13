@@ -37,44 +37,42 @@ var height = $(window).height();
 var going_down = false
 var going_right = true
 var drift = function() {
+    record_offset();
+
+    // Going down
     if (Mooninites.offset_top + 230 < height && going_down) {
-        record_offset();
         if (Mooninites.offset_left + 300 < width && going_right) {
+            // Going down and right
             set_offset(Mooninites.offset_top + 1, Mooninites.offset_left + 1);
         }
         else {
+            // Going down and left
             set_offset(Mooninites.offset_top + 1, Mooninites.offset_left -1);
         }
-            if (Mooninites.offset_top + 230 == height)
-                going_down = false
-            if (Mooninites.offset_left + 300 == width)
-                going_right = false
-            if (Mooninites.offset_top == 0)
-                going_down = true
-            if (Mooninites.offset_left == 0)
-                going_right = true
-        record_offset();
-        setTimeout(drift, 10);
     }
+    // Going up
     else {
-        record_offset();
         if (Mooninites.offset_left +300 < width && going_right) {
+            // Going up and right
             set_offset(Mooninites.offset_top -1, Mooninites.offset_left + 1);
         }
         else {
+            // Going up and left
             set_offset(Mooninites.offset_top -1, Mooninites.offset_left -1);
         }
-        if (Mooninites.offset_top + 230 == height)
-           going_down = false
-        if (Mooninites.offset_left + 300 == width)
-           going_right = false
-        if (Mooninites.offset_top == 0)
-           going_down = true
-        if (Mooninites.offset_left == 0)
-           going_right = true
-        record_offset();
-        setTimeout(drift, 10);
     }
+
+    // Set direction for next moonimove
+    if (Mooninites.offset_top + 230 == height)
+        going_down = false
+    if (Mooninites.offset_left + 300 == width)
+        going_right = false
+    if (Mooninites.offset_top == 0)
+        going_down = true
+    if (Mooninites.offset_left == 0)
+        going_right = true
+    record_offset();
+    setTimeout(drift, 10);
 }
 
 
