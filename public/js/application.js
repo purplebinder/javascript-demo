@@ -10,14 +10,14 @@ var ScreenSaver = function(selector) {
     this.left = offset.left;
     this.width = this.element.width();
     this.height = this.element.height();
-    this.going_down = right;
+    this.going_down = true;
     this.going_right = true;
 
     this.setPosition = function(offset_top, offset_left) {
       this.top = offset_top;
       this.left = offset_left;
       this.element.offset({top:offset_top, left:offset_left});
-    }
+    };
 
     this.move = function() {
       var new_top = this.getNewTop();
@@ -26,13 +26,19 @@ var ScreenSaver = function(selector) {
     };
 
     this.getNewTop = function() {
-      return this.top + 1;
-    }
+      if(this.going_down)
+        return this.top + 1;
+      else
+        return this.top -1;
+    };
 
     this.getNewLeft = function() {
-      return this.left + 1;
-    }
-}
+      if(this.going_right)
+        return this.left + 1;
+      else
+        return this.left -1;
+    };
+};
 
 /*
 var drift;

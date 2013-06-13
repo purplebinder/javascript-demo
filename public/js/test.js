@@ -55,6 +55,34 @@ describe('ScreenSaver', function() {
       assert.equal(screenSaver.top, starting_top + 1);
       assert.equal(screenSaver.left, starting_left + 1);
     });
+    it('if its going down and left', function() {
+      screenSaver.going_down = true;
+      screenSaver.going_right = false;
+      var starting_top = screenSaver.top;
+      var starting_left = screenSaver.left;
+      screenSaver.move();
+      assert.equal(screenSaver.top, starting_top + 1);
+      assert.equal(screenSaver.left, starting_left - 1);
+    });
+    it('if its going up and left', function() {
+      screenSaver.going_down = false;
+      screenSaver.going_right = false;
+      var starting_top = screenSaver.top;
+      var starting_left = screenSaver.left;
+      screenSaver.move();
+      assert.equal(screenSaver.top, starting_top - 1);
+      assert.equal(screenSaver.left, starting_left - 1);
+    });
+    it('if its going up and right', function() {
+      screenSaver.going_down = false;
+      screenSaver.going_right = true;
+      var starting_top = screenSaver.top;
+      var starting_left = screenSaver.left;
+      screenSaver.move();
+      assert.equal(screenSaver.top, starting_top - 1);
+      assert.equal(screenSaver.left, starting_left + 1);
+    });
+
   });
 
 });
