@@ -1,6 +1,13 @@
-var Mooninites = {
-    offset_top: 0,
-    offset_left: 0
+/*
+ * Screen Saver applications
+ *
+ */
+
+var ScreenSaver = function(selector) {
+    this.el = $(selector);
+    var offset = this.el.offset();
+    this.top = offset.top
+    this.left = offset.left;
 }
 
 var record_offset = function() {
