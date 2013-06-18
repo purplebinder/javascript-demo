@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mocha Tests</title>
+    <link href='public/css/mocha.css' rel='stylesheet'>
+    <style>
+      #test-screensaver {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 300px;
+        height: 200px;
+      }
+    </style>
+    <script src='public/js/jquery-2.0.2.js'></script>
+    <script src='public/js/mocha.js'></script>
+    <script src='public/js/chai.js'></script>
+    <script src='public/js/application.js'></script>
+    <script>
+      mocha.setup('bdd');
+      var assert = chai.assert;
+    </script>
+  </head>
+  <body>
+    <h1>Mocha Tests</h1>
+    <div id='test-screensaver'></div>
+    <div id='mocha'></div>
+    <script src='public/js/test.js'></script>
+    <script>
+      if (window.mochaPhantomJS) {
+        mochaPhantomJS.run();
+      } else {
+        mocha.run();
+      }
+    </script>
+  </body>
+</html>
