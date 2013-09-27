@@ -2,6 +2,9 @@ source 'http://rubygems.org'
 
 gem 'sinatra'
 gem 'haml'
+gem 'rerun'
+gem 'browser'
+gem 'useragent'
 
 group :test, :development do
   gem 'rspec'
