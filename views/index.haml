@@ -1,9 +1,9 @@
 !!!
 %html
   %head
-    %title Black &amp; White Javascript Test App
+    %title Screen Saver - JQuery
     %script(type="text/javascript" src="js/jquery-2.0.2.js")
-    %script(type="text/javascript" src="js/application.js")
+    %script(type="text/javascript" src="js/jquery-screensaver.js")
     :css
       body {
         background-color: black;
@@ -16,6 +16,8 @@
       
 
   %body
+    %div
+      %a(href="/angular") Angular
     %img(src="images/mooninites.jpg")
     :javascript
       var screenSaver = new ScreenSaver('img');

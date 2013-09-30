@@ -10,6 +10,10 @@ get '/' do
   haml :index
 end
 
+get '/angular' do
+  haml :angular
+end
+
 get '/mocha' do
   haml :mocha
 end
