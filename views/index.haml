@@ -11,14 +11,17 @@
       img {
         width: 300px;
         height: 230px;
+        bottom: auto;
         margin: auto;
+        position: absolute;
       }
       
 
   %body
     %div
       %a(href="/angular") Angular
-    %img(src="images/mooninites.jpg")
-    :javascript
-      var screenSaver = new ScreenSaver('img');
-      screenSaver.drift();
+    %div
+      %img(src="images/mooninites.jpg")
+      :javascript
+        var screenSaver = new ScreenSaver('img');
+        screenSaver.drift();
