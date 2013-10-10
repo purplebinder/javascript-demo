@@ -15,12 +15,18 @@
         margin: auto;
         position: absolute;
       }
+      .container {
+        max-width: 100%;
+        max-height: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+       }
       
 
   %body
     %div
       %a(href="/angular") Angular
-    %div
+    %div.container
       %img(src="images/mooninites.jpg")
       :javascript
         var screenSaver = new ScreenSaver('img');
